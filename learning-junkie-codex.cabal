@@ -26,6 +26,8 @@ source-repository head
 library
   exposed-modules:
       LearningJunkie.Codex
+      LearningJunkie.Codex.Environment
+      LearningJunkie.Codex.ExecutionResult
   other-modules:
       Paths_learning_junkie_codex
   autogen-modules:
