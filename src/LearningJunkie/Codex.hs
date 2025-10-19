@@ -16,13 +16,13 @@ executeCode environment program = do
 
         let
                 temporaryFilePath = case environment of
-                        Node -> "node/" ++ randomFileName ++ ".js"
-                        Python -> "python/" ++ randomFileName ++ ".py"
-                        Haskell -> "haskell/" ++ randomFileName ++ ".hs"
+                        Node -> "src/node/" ++ randomFileName ++ ".js"
+                        Python -> "src/python/" ++ randomFileName ++ ".py"
+                        Haskell -> "src/haskell/" ++ randomFileName ++ ".hs"
                 dockerFileLocation = case environment of
-                        Node -> "node/Dockerfile"
-                        Python -> "python/Dockerfile"
-                        Haskell -> "haskell/Dockerfile"
+                        Node -> "src/node/Dockerfile"
+                        Python -> "src/python/Dockerfile"
+                        Haskell -> "src/haskell/Dockerfile"
 
         writeFile temporaryFilePath program
 
