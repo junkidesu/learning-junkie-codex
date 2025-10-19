@@ -1,14 +1,16 @@
 module LearningJunkie.Codex (Environment (..), executeCode, ExecutionResult (..)) where
 
-import Data.Text (pack)
+import Data.Text (Text, pack)
+import Data.Text.IO (writeFile)
 import Data.UUID (toString)
 import Data.UUID.V4 (nextRandom)
 import LearningJunkie.Codex.Environment (Environment (..))
 import LearningJunkie.Codex.ExecutionResult (ExecutionResult (..))
 import System.Exit (ExitCode (ExitFailure, ExitSuccess))
 import System.Process
+import Prelude hiding (writeFile)
 
-executeCode :: Environment -> String -> IO ExecutionResult
+executeCode :: Environment -> Text -> IO ExecutionResult
 executeCode environment program = do
         randomFileName <- toString <$> nextRandom
 
