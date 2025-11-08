@@ -61,3 +61,5 @@ $ learning-junkie-codex-exe
 ```
 
 This will start the code execution server locally on port 3001.
+
+The OpenApi specification of the documentation is available at https://learning-junkie-codex-main.onrender.com/swagger-ui
