@@ -1,4 +1,4 @@
-module LearningJunkie.Codex (Environment (..), executeCode, ExecutionResult (..)) where
+module LearningJunkie.Codex.Execute (Environment (..), executeCode, ExecutionResult (..)) where
 
 import Data.Text (Text, pack)
 import Data.Text.IO (writeFile)
@@ -14,15 +14,16 @@ executeCode :: Environment -> Text -> IO ExecutionResult
 executeCode environment program = do
         randomFileName <- toString <$> nextRandom
 
-        let
-                temporaryFilePath = case environment of
-                        Node -> "src/node/" ++ randomFileName ++ ".js"
-                        Python -> "src/python/" ++ randomFileName ++ ".py"
-                        Haskell -> "src/haskell/" ++ randomFileName ++ ".hs"
-                dockerFileLocation = case environment of
-                        Node -> "src/node/Dockerfile"
-                        Python -> "src/python/Dockerfile"
-                        Haskell -> "src/haskell/Dockerfile"
+        let temporaryFilePath = case environment of
+                Node -> "codex/node/" ++ randomFileName ++ ".js"
+                Python -> "codex/python/" ++ randomFileName ++ ".py"
+                Haskell -> "codex/haskell/" ++ randomFileName ++ ".hs"
+        let dockerFileLocation = case environment of
+                Node -> "codex/node/Dockerfile"
+                Python -> "codex/python/Dockerfile"
+                Haskell -> "codex/haskell/Dockerfile"
+
+        print dockerFileLocation
 
         writeFile temporaryFilePath program
 

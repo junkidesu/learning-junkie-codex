@@ -22,11 +22,26 @@ description:         Please see the README on GitHub at <https://github.com/junk
 dependencies:
 - base >= 4.7 && < 5
 - process 
+- directory
 - time 
 - text 
+- bytestring
 - uuid
 - aeson 
+- lens
 - openapi3
+- servant 
+- servant-server 
+- servant-client
+- openapi3
+- servant-openapi3
+- servant-swagger-ui
+- wai 
+- wai-cors
+- wai-logger
+- warp
+- http-client
+- file-embed
 
 ghc-options:
 - -Wall
@@ -41,4 +56,15 @@ ghc-options:
 
 library:
   source-dirs: src
+
+executables:
+  learning-junkie-codex-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - learning-junkie-codex
 

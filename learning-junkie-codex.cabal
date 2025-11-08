@@ -25,9 +25,16 @@ source-repository head
 
 library
   exposed-modules:
-      LearningJunkie.Codex
+      LearningJunkie.Codex.Client
+      LearningJunkie.Codex.CodeInput
       LearningJunkie.Codex.Environment
+      LearningJunkie.Codex.Execute
       LearningJunkie.Codex.ExecutionResult
+      LearningJunkie.Codex.Web
+      LearningJunkie.Codex.Web.API
+      LearningJunkie.Codex.Web.Cors
+      LearningJunkie.Codex.Web.Execute
+      LearningJunkie.Codex.Web.OpenApi
   other-modules:
       Paths_learning_junkie_codex
   autogen-modules:
@@ -38,9 +45,57 @@ library
   build-depends:
       aeson
     , base >=4.7 && <5
+    , bytestring
+    , directory
+    , file-embed
+    , http-client
+    , lens
     , openapi3
     , process
+    , servant
+    , servant-client
+    , servant-openapi3
+    , servant-server
+    , servant-swagger-ui
     , text
     , time
     , uuid
+    , wai
+    , wai-cors
+    , wai-logger
+    , warp
+  default-language: Haskell2010
+
+executable learning-junkie-codex-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_learning_junkie_codex
+  autogen-modules:
+      Paths_learning_junkie_codex
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , file-embed
+    , http-client
+    , learning-junkie-codex
+    , lens
+    , openapi3
+    , process
+    , servant
+    , servant-client
+    , servant-openapi3
+    , servant-server
+    , servant-swagger-ui
+    , text
+    , time
+    , uuid
+    , wai
+    , wai-cors
+    , wai-logger
+    , warp
   default-language: Haskell2010
