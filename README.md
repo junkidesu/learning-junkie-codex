@@ -1,6 +1,6 @@
 # learning-junkie-codex
 
-Remote code execution tool for Haskell.
+Remote code execution tool for Haskell. This library provides a Servant client function `executeClient` for remotely executing your code.
 
 Currently, the following environments are supported, with future plans to add more languages:
 - Haskell
@@ -34,6 +34,7 @@ $ stack install
 
 ## Usage
 
+### Library 
 The package has not been uploaded to hackage yet. Assuming that you use Stack, perform the following steps to use the library in your Haskell project:
 
 1. Add the library to `extra-deps` of the `stack.yaml` file:
@@ -41,7 +42,7 @@ The package has not been uploaded to hackage yet. Assuming that you use Stack, p
 ```yaml
 extra-deps:
 - github: junkidesu/learning-junkie-codex
-  commit: 9cb4e496dc009b60ffa3aeb5d72566caf7f43602 #latest commit ID
+  commit: 9cb4e496dc009b60ffa3aeb5d72566caf7f43602 # check the latest commit ID on GitHub
 ```
 
 2. Add the library as a dependency in the `package.yaml` file:
@@ -50,3 +51,13 @@ extra-deps:
 dependencies:
 - learning-junkie-codex
 ```
+
+### Service 
+
+To start the service locally, first run `stack install` at the root of the repository, and then execute
+
+```sh
+$ learning-junkie-codex-exe
+```
+
+This will start the code execution server locally on port 3001.

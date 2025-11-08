@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 haskell:9.6.4 as build-stage
+FROM haskell:9.6.4 AS build-stage
 
 WORKDIR /usr/app
 
@@ -10,7 +10,7 @@ COPY . .
 
 RUN stack install --local-bin-path .
 
-FROM --platform=linux/amd64 ubuntu:20.04 as deployment
+FROM ubuntu:20.04 AS deployment
 
 RUN apt-get update -y
 RUN apt-get upgrade -y
