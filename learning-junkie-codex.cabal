@@ -30,6 +30,7 @@ library
       LearningJunkie.Codex.Environment
       LearningJunkie.Codex.Execute
       LearningJunkie.Codex.ExecutionResult
+      LearningJunkie.Codex.Initialize
       LearningJunkie.Codex.Web
       LearningJunkie.Codex.Web.API
       LearningJunkie.Codex.Web.Cors
